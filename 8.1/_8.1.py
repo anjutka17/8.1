@@ -1,42 +1,36 @@
-﻿import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 
-plt.figure(figsize=(10, 6), facecolor="lightyellow")
+plt.figure(facecolor="lightblue")
 
-# верхняя дуга зонта: y = -1/18 x² + 12, x ∈ [-12, 12]
+# Верхняя часть зонта
 x1 = np.linspace(-12, 12, 400)
 y1 = -1/18 * x1**2 + 12
-plt.plot(x1, y1, 'b-', label='Купол')
+plt.plot(x1, y1, color="pink") # розовый цвет
 
-# левая часть: y = -1/8 x² + 6, x ∈ [-4, 4]
 x2 = np.linspace(-4, 4, 400)
 y2 = -1/8 * x2**2 + 6
-plt.plot(x2, y2, 'g--')
+plt.plot(x2, y2, color="green")
 
-# левая внутренняя дуга: y = 1/8 (x + 8)² + 6, x ∈ [-12, -4]
 x3 = np.linspace(-12, -4, 400)
-y3 = 1/8 * (x3 + 8)**2 + 6
-plt.plot(x3, y3, 'm:')
+y3 = -1/8 * (x3 + 8)**2 + 6
+plt.plot(x3, y3, color="green")
 
-# правая внутренняя дуга: y = 1/8 (x - 8)² + 6, x ∈ [4, 12]
 x4 = np.linspace(4, 12, 400)
-y4 = 1/8 * (x4 - 8)**2 + 6
-plt.plot(x4, y4, 'm:')
+y4 = -1/8 * (x4 - 8)**2 + 6
+plt.plot(x4, y4, color="green")
 
-# левая ручка: y = 2(x + 3) - 9, x ∈ [-4, -0.3]
+# Ручка зонта
 x5 = np.linspace(-4, -0.3, 400)
-y5 = 2 * (x5 + 3) - 9
-plt.plot(x5, y5, 'r-.', marker='x', markersize=4)
+y5 = 2*(x5 + 3)**2 - 9
+plt.plot(x5, y5, color="purple")
 
-# правая ручка: y = 1.5(x + 3)³ - 10, x ∈ [-4, 0.2]
-x6 = np.linspace(-4, 0.2, 400)
-y6 = 1.5 * (x6 + 3)**3 - 10
-plt.plot(x6, y6, 'k-', marker='*', markersize=4)
+x6 = np.linspace(-0.4, 0.2, 400)
+y6 = 1.5*(x6 + 3)**2 - 10
+plt.plot(x6, y6, color="purple")
 
-plt.title("Vihmavari (Зонтик)", fontsize=14)
-plt.xlabel("x")
-plt.ylabel("y")
+plt.title("VIHMAVARI") 
 plt.grid(True)
-plt.legend()
+plt.axis('equal')
 plt.show()
 
